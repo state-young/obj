@@ -12,8 +12,8 @@ $(function(){
     }
    
   })
-
-  $('.layui-form').submit(function(e){
+// 登录表单
+  $('#loginForm').submit(function(e){
     e.preventDefault()
     // 获取表单的登录名和密码
     var formData = $(this).serialize()
