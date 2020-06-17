@@ -47,6 +47,8 @@ $('#registerForm').submit(function(e){
     success : function(res){
       if (res.status === 0) {
         $('#registerForm a').click()
+      }else{
+        layer.msg(res.message); 
       }
     }
   })
