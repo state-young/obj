@@ -34,4 +34,15 @@ $(function(){
     })
     
   })
+  // 去注册
+  $('#loginForm a').click(function(){
+    $('#loginForm').hide()
+    $('#registerForm').show()
+    
+  })
+  // 去登录
+  $('#registerForm a').click(function(){
+    $('#loginForm').show()
+    $('#registerForm').hide()
+  })
 })
