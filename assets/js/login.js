@@ -9,11 +9,18 @@ $(function(){
       if (!teg.test(value)) {
         return '密码必须是6位数字'
       }
+    },
+    sete : function(value){
+      // 获取原生密码
+      var pwd = $('#registerForm input[type="password"]').val()
+      if (pwd !== value) {
+        return '两次输入的密码必须一致'
+      }
     }
    
   })
-
-  $('.layui-form').submit(function(e){
+// 登录表单
+  $('#loginForm').submit(function(e){
     e.preventDefault()
     // 获取表单的登录名和密码
     var formData = $(this).serialize()
@@ -33,5 +40,36 @@ $(function(){
       }
     })
     
+  })
+  //监听注册提交事件 ----控制表单的提交
+$('#registerForm').submit(function(e){
+  e.preventDefault()
+  //获取表单数据
+  var formDtat = $(this).serialize()  // 一次性获取所有表单数据
+  // 调用数据
+  $.ajax({
+    type :'post',
+    url : 'http://ajax.frontend.itheima.net/api/reguser' ,
+    data : formDtat,
+    success : function(res){
+      if (res.status === 0) {
+        $('#registerForm a').click()
+      }else{
+        layer.msg(res.message); 
+      }
+    }
+  })
+})
+
+  // 去注册
+  $('#loginForm a').click(function(){
+    $('#loginForm').hide()
+    $('#registerForm').show()
+    
+  })
+  // 去登录
+  $('#registerForm a').click(function(){
+    $('#loginForm').show()
+    $('#registerForm').hide()
   })
 })

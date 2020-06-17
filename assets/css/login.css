@@ -39,3 +39,6 @@ html,body{
 .layui-input{
   padding-left: 30px;
 }
+#registerForm{
+   display:none;
+}
