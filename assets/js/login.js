@@ -34,6 +34,24 @@ $(function(){
     })
     
   })
+  //监听注册提交事件 ----控制表单的提交
+$('#registerForm').submit(function(e){
+  e.preventDefault()
+  //获取表单数据
+  var formDtat = $(this).serialize()  // 一次性获取所有表单数据
+  // 调用数据
+  $.ajax({
+    type :'post',
+    url : 'http://ajax.frontend.itheima.net/api/reguser' ,
+    data : formDtat,
+    success : function(res){
+      if (res.status === 0) {
+        $('#registerForm a').click()
+      }
+    }
+  })
+})
+
   // 去注册
   $('#loginForm a').click(function(){
     $('#loginForm').hide()
