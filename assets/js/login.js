@@ -9,6 +9,13 @@ $(function(){
       if (!teg.test(value)) {
         return '密码必须是6位数字'
       }
+    },
+    sete : function(value){
+      // 获取原生密码
+      var pwd = $('#registerForm input[type="password"]').val()
+      if (pwd !== value) {
+        return '两次输入的密码必须一致'
+      }
     }
    
   })
