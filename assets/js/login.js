@@ -33,7 +33,7 @@ $(function(){
         if (res.status === 0) {
           
           // 存储客户端信息
-          localStorage.setItem('matoken',res.token)
+          localStorage.setItem('mytoken',res.token)
           location .href = './index.html'
         }
         
@@ -54,6 +54,7 @@ $('#registerForm').submit(function(e){
     success : function(res){
       if (res.status === 0) {
         $('#registerForm a').click()
+        layer.msg(res.message)
       }else{
         layer.msg(res.message); 
       }
