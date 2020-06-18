@@ -32,4 +32,18 @@ $(function(){
        })
    }
    loadUserInfo()
+$('#logout-btn').click(function(){
+       layer.confirm('确认要退出吗?', {icon: 3, title:'提示'}, function(index){
+    //do something
+        localStorage.removeItem('mytoken')
+        // 关闭弹窗
+    layer.close(index);
+    //跳转
+    location.href = './login.html'
+  })
+
 })
+  
+})
+
+
