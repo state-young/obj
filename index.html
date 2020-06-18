@@ -18,8 +18,10 @@
     
     <ul class="layui-nav layui-layout-right">
       <li class="layui-nav-item">
-        <a href="javascript:;">
-          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+        <a href="javascript:;"  class="welcome">
+          <!-- <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> -->
+
+          <div>L</div>
          个人中心
         </a>
         <dl class="layui-nav-child">
@@ -28,12 +30,17 @@
           <dd><a href="">重置密码</a></dd>
         </dl>
       </li>
-      <li class="layui-nav-item"><a href="javascript：;"><i class="layui-icon layui-icon-logout"></i> 退了</a></li>
+      <li class="layui-nav-item"><a href="javascript：;" ><i class="layui-icon layui-icon-logout"></i> 退了</a></li>
     </ul>
   </div>
   
   <div class="layui-side layui-bg-black">
     <div class="layui-side-scroll">
+      <a class="welcome" href="javascript:;">
+        <div>L</div>
+        <!-- <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> -->
+        <span>欢迎 XXX </span>
+      </a>
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
       <ul class="layui-nav layui-nav-tree" lay-shrink='all'  lay-filter="test">
         <li class="layui-nav-item layui-this"><a href=""><span class="iconfont icon-home"></span>首页</a></li>
@@ -59,7 +66,9 @@
   
   <div class="layui-body">
     <!-- 内容主体区域 -->
-    <div style="padding: 15px;">内容主体区域</div>
+    <div class="layui-body">
+      <iframe src="./home/dashboard.html"></iframe>
+    </div>
   </div>
   
   <div class="layui-footer">
