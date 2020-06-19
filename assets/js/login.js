@@ -34,6 +34,7 @@ $(function(){
           
           // 存储客户端信息
           localStorage.setItem('mytoken',res.token)
+         
           location .href = './index.html'
         }
         
@@ -53,6 +54,7 @@ $('#registerForm').submit(function(e){
     data : formDtat,
     success : function(res){
       if (res.status === 0) {
+        console.log(res);
         $('#registerForm a').click()
         layer.msg(res.message)
       }else{
