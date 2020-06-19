@@ -6,7 +6,7 @@ $(function(){
    function loadUserInfo(){
        $.ajax({
            type: 'get',
-           url: 'http://ajax.frontend.itheima.net/my/userinfo',
+           url: 'my/userinfo',
            headers: {
             Authorization: localStorage.getItem('mytoken')
            },

@@ -27,7 +27,7 @@ $(function(){
     // 调[]用后台接口
     $.ajax({
       type : 'post',
-      url : 'http://ajax.frontend.itheima.net/api/login',
+      url : 'api/login',
       data : formData,
       success : function(res){
         if (res.status === 0) {
@@ -50,7 +50,7 @@ $('#registerForm').submit(function(e){
   // 调用数据
   $.ajax({
     type :'post',
-    url : 'http://ajax.frontend.itheima.net/api/reguser' ,
+    url : 'api/reguser' ,
     data : formDtat,
     success : function(res){
       if (res.status === 0) {
