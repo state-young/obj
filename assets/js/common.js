@@ -2,8 +2,8 @@
     统一
     配置接口
 */ 
-var baseURL = 'http://ajax.frontend.itheima.net/'
-// var baseURL = 'http://www.liulongbin.top:3007/'
+// var baseURL = 'http://ajax.frontend.itheima.net/'
+var baseURL = 'http://www.liulongbin.top:3007/'
 $.ajaxPrefilter(function(option){
     // 请求开始之前
     option.beforeSend = function(){
