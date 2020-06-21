@@ -31,11 +31,12 @@ $(function(){
       data : formData,
       success : function(res){
         if (res.status === 0) {
-          
           // 存储客户端信息
           localStorage.setItem('mytoken',res.token)
-         
           location .href = './index.html'
+        }else{
+          layer.msg(res.message)
+         
         }
         
       }
