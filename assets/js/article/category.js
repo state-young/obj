@@ -56,7 +56,6 @@ $(function () {
         // 获取要删除的分类的id
         var id = e.target.dataset.id
         // console.log(id)
-        
         // // var id = $(e.target).data('id')
         // var id = $(this).attr('data-id');
         // 根据id删除分类
@@ -74,6 +73,49 @@ $(function () {
                 }
             }
         })
+    })
+    var editIndex = null
+    // 添加
+    $('body').on('click','.edit',function(){
+        var id= $(this).data('id')
+        $.ajax({
+            type:'get',
+            url:'my/article/cates/'+id,
+            data:{
+                id:id
+            },
+            success:function(res){
+                editIndex = layer.open({
+                    type: 1,
+                    title: '编辑分类',
+                    content: $('#edit-tpl').html(),
+                    area: ['500px', '250px']
+                })
+                // 把获取的数据添加到表单
+                form.val('editForm',res.data)
+            }
+
+        })
+        
+    })
+    $('body').on('submit','#edit-form',function(e){
+        e.preventDefault()
+        var fd = $(this).serialize()
+        $.ajax({
+            type: 'post',
+            url: 'my/article/updatecate',
+            data: fd,
+            success: function (res) {
+              if (res.status === 0) {
+                // 编辑分类成功，提示一下并且关闭弹出层,刷新分类列表
+                layer.msg(res.message)
+                // 关闭弹出层
+                layer.close(editIndex)
+                // 刷新分类列表
+                loadListData()
+              }
+            }
+          })
     })
 
 
