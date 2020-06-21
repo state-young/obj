@@ -7,32 +7,31 @@ $(function () {
         $.ajax({
             type: 'get',
             url: 'my/userinfo',
-            headers: {
-                Authorization: localStorage.getItem('mytoken')
-            },
+            // headers: {
+            //     Authorization: localStorage.getItem('mytoken')
+            // },
             success: function (res) {
                 if (res.status === 0) {
                     // 获取用户信息
                     var info = res.data
-
                     $('#welcome-username').html(info.username)
-                    $('#nav-username').html(info.username)
+                    // $('#nav-username').html(info.username)
                     // 头像数据
                     if (info.user_pic) {
                         //存在就显示图片
-                        $('#welcome-username')
+                        $('#welcome-username,#nav-username')
                             .parent()
                             .siblings('div')
                             .remove()
-                        $('#welcome-username')
+                        $('#welcome-username ,#nav-username')
                             .parent()
                             .find('img')
                             .remove()
                             .end() // 退回到上一次选择器选中的内容
                             .prepend('<img src="' + info.user_pic + '" alt="" />')
 
-                        $('#nav-username').siblings().remove()
-                        $('#nav-username').prepend('<img src="' + info.user_pic + '" alt="" />')
+                        // $('').siblings().remove()
+                        // $('#nav-username').prepend('<img src="' + info.user_pic + '" alt="" />')
 
 
                     }
